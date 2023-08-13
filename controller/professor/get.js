@@ -1,8 +1,9 @@
 const client = require('../../db/db');
+const professorModel = require('../../models/professor');
 const getProfessors = (req, res) => {
     let db = client.db('MServer');
 
-    db.professor.find().then((resp1) => {
+    professorModel.find().then((resp1) => {
         res.status(200).send({
             'message': 'Professor list is here',
             'data': resp1
