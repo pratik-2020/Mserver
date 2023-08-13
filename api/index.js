@@ -2,6 +2,16 @@ const express = require('express');
 // const router = require('../routers/professor');
 // require('../db/db');
 const app = express();
+const cors = require('cors');
+app.use(cors({
+    origin: '*',
+    methods: [
+        'GET',
+        'POST',
+        'DELETE',
+        'PUT'
+    ]
+}));
 app.use(express.json());
 const router = require('../routers/professor');
 const otpRouter = require('../routers/otp');
