@@ -16,6 +16,9 @@ const professorSchema = mongoose.Schema({
     },
     researchArea: {
         type: String
+    },
+    send: {
+        type: Boolean
     }
 });
 

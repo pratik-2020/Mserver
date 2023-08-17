@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const otpModel = require('../../models/otp');
+const professorModel = require('../../models/professor');
 const sendMail = (req, res) => {
     const email = req.body.email;
     const mailBody = req.body.mailBody;
@@ -28,9 +29,17 @@ const sendMail = (req, res) => {
                     res.send(err);
                 }
                 else{
-                    res.status(200).send({
-                        'message': 'Mail send'
-                    });
+                    professorModel.updateOne({
+                        email: email
+                    }, {
+                        send: true
+                    }).then((resp101) => {
+                        res.status(200).send({
+                            'message': 'Mail send'
+                        });
+                    } ).catch((er101) => {
+                        res.send(er101);
+                    })
                 }
             });
         }
