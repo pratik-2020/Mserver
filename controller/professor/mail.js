@@ -14,7 +14,7 @@ const sendMail = (req, res) => {
     });
     const otp = req.body.otp;
     otpModel.find({
-        email: "pratikthakur2019@gmail.com"
+        email:  "pratikthakur2019@gmail.com"
     }).then((resp11) => {
         if(resp11[0].otpNum === otp){
             var mailOptions = {
